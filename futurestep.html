@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinta o Futuro nos Pés - Tênis Esportivos</title>
+  <meta name="description" content="Tênis esportivos com estilo futurista, performance e tecnologia para jovens, esportistas e atletas. Cadastre-se e receba ofertas exclusivas.">
+  <style>
+    :root {
+      --bg-dark: #050712;
+      --bg-card: #0c0f1f;
+      --accent: #37f2ff;
+      --accent-soft: rgba(55, 242, 255, 0.12);
+      --accent-strong: #00d0ff;
+      --text-main: #f5f7ff;
+      --text-muted: #a0a4c0;
+      --danger: #ff4b7b;
+      --success: #3bd686;
+      --border-soft: #1b2038;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #151835 0, #050712 55%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* LAYOUT BASE */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: min(1120px, 100% - 32px);
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 7, 18, 0.9),
+        rgba(5, 7, 18, 0.65),
+        transparent
+      );
+      border-bottom: 1px solid rgba(55, 242, 255, 0.05);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffffff, #37f2ff 26%, #050712 65%);
+      box-shadow: 0 0 18px rgba(55, 242, 255, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-logo::after {
+      content: "";
+      position: absolute;
+      inset: 36%;
+      border-radius: inherit;
+      border: 2px solid rgba(5, 7, 18, 0.85);
+      filter: blur(0.5px);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 0.88rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--text-main);
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+      border-radius: 999px;
+      transition: width 0.2s ease-out;
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    .btn-header {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 242, 255, 0.5);
+      background: radial-gradient(circle at top left, rgba(55, 242, 255, 0.15), transparent 58%);
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn-header span.icon-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .btn-header:hover {
+      background: rgba(55, 242, 255, 0.08);
+      transform: translateY(-1px);
+      box-shadow: 0 0 18px rgba(55, 242, 255, 0.3);
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 40px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 8px 4px 4px;
+      border-radius: 999px;
+      background: rgba(12, 15, 31, 0.9);
+      border: 1px solid rgba(55, 242, 255, 0.18);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-pill {
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      background: rgba(55, 242, 255, 0.13);
+      color: var(--accent);
+    }
+
+    .eyebrow-text {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      line-height: 1.05;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span.accent {
+      background: linear-gradient(120deg, #37f2ff, #00ffe1, #ffffff);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 42px rgba(0, 240, 255, 0.35);
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      max-width: 480px;
+      margin-bottom: 22px;
+    }
+
+    .hero-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 24px;
+      margin-bottom: 26px;
+      font-size: 0.85rem;
+    }
+
+    .hero-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+
+    .hero-list span.bullet {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 2px solid rgba(55, 242, 255, 0.4);
+      box-shadow: 0 0 8px rgba(55, 242, 255, 0.5);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #37f2ff, #00ffe1, #00b7ff);
+      color: #020308;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 18px 40px rgba(0, 200, 255, 0.5);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) translateZ(0);
+      filter: brightness(1.02);
+      box-shadow: 0 24px 55px rgba(0, 204, 255, 0.7);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: 0 14px 30px rgba(0, 204, 255, 0.55);
+    }
+
+    .btn-secondary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(160, 164, 192, 0.45);
+      background: rgba(5, 7, 18, 0.9);
+      color: var(--text-muted);
+      font-size: 0.84rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(55, 242, 255, 0.7);
+      color: var(--accent);
+      background: rgba(12, 15, 31, 0.95);
+    }
+
+    .hero-note {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* HERO – CARD VISUAL */
+
+    .hero-card {
+      background: radial-gradient(
+          circle at 10% 0,
+          rgba(55, 242, 255, 0.16),
+          transparent 55%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(0, 217, 255, 0.25),
+          transparent 45%
+        ),
+        var(--bg-card);
+      border-radius: 24px;
+      padding: 20px 20px 18px;
+      border: 1px solid rgba(55, 242, 255, 0.15);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .hero-card-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(5, 7, 18, 0.7);
+      border: 1px solid rgba(55, 242, 255, 0.2);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-card-tag span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #37f2ff, #00ffe1);
+      box-shadow: 0 0 12px rgba(55, 242, 255, 0.8);
+    }
+
+    .shoe-orbit {
+      position: relative;
+      aspect-ratio: 4/3;
+      margin-bottom: 10px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 50% 0, #222867, #050712 55%);
+      overflow: hidden;
+      border: 1px solid rgba(55, 242, 255, 0.18);
+    }
+
+    .shoe-core {
+      position: absolute;
+      inset: 14% 6% 16%;
+      border-radius: 18px;
+      background: radial-gradient(
+          circle at 14% 0,
+          rgba(255, 255, 255, 0.95),
+          transparent 40%
+        ),
+        radial-gradient(
+          circle at 100% 100%,
+          rgba(55, 242, 255, 0.9),
+          transparent 55%
+        ),
+        linear-gradient(135deg, #111320, #060712);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      transform: perspective(800px) rotateY(-14deg) rotateX(10deg);
+      transform-origin: center;
+      box-shadow: 0 32px 60px rgba(0, 0, 0, 0.9);
+    }
+
+    .shoe-silhouette {
+      position: absolute;
+      inset: 22% 8% 24%;
+      border-radius: 999px;
+      background: linear-gradient(120deg, #ffffff, #dffcff, #8bf2ff, #06b4ff);
+      filter: drop-shadow(0 22px 26px rgba(0, 0, 0, 0.7));
+      mask-image: radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 1), transparent 70%);
+      transform: translateX(-6px);
+    }
+
+    .shoe-glow {
+      position: absolute;
+      inset: auto 10% 14%;
+      height: 42px;
+      border-radius: 999px;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 255, 234, 0.85),
+        transparent 55%
+      );
+      opacity: 0.75;
+      filter: blur(4px);
+    }
+
+    .orbit-ring {
+      position: absolute;
+      inset: 36%;
+      border-radius: 999px;
+      border: 1px dashed rgba(55, 242, 255, 0.35);
+      opacity: 0.85;
+      transform: rotate(-10deg);
+    }
+
+    .orbit-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #37f2ff;
+      top: 12%;
+      left: 22%;
+      box-shadow: 0 0 18px rgba(55, 242, 255, 0.9);
+    }
+
+    .hero-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(160, 164, 192, 0.4);
+      background: rgba(5, 7, 18, 0.8);
+      font-size: 0.7rem;
+    }
+
+    .rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .rating span.star {
+      color: #ffd35c;
+      font-size: 0.9rem;
+    }
+
+    /* SEÇÕES */
+
+    section {
+      padding: 50px 0;
+      border-top: 1px solid rgba(27, 32, 56, 0.9);
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 420px;
+    }
+
+    /* SOBRE / NOVA ERA */
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: rgba(12, 15, 31, 0.9);
+      border: 1px solid rgba(55, 242, 255, 0.18);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .pill span {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .text-block p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .text-block p strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .highlight-list {
+      margin-top: 14px;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .highlight-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .highlight-pip {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at center, #37f2ff, #00b7ff);
+      box-shadow: 0 0 10px rgba(55, 242, 255, 0.8);
+    }
+
+    .feature-card {
+      background: rgba(5, 7, 18, 0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(55, 242, 255, 0.18);
+      padding: 18px 18px 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    .feature-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 0.78rem;
+    }
+
+    .metric-label {
+      color: var(--text-muted);
+    }
+
+    .metric-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* CATEGORIAS */
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(5, 7, 18, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      border: 1px solid var(--border-soft);
+      transition: all 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: radial-gradient(
+        circle at top,
+        rgba(55, 242, 255, 0.15),
+        transparent 55%
+      );
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      border-color: rgba(55, 242, 255, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 2px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.7rem;
+    }
+
+    .chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(160, 164, 192, 0.4);
+      color: var(--text-muted);
+    }
+
+    /* POR QUÊ / BENEFÍCIOS */
+
+    .list-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-muted);
+    }
+
+    .list-item-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(55, 242, 255, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-top: 3px;
+    }
+
+    /* LEADS / FORMULÁRIO */
+
+    .lead-section {
+      background: radial-gradient(
+          circle at top,
+          rgba(55, 242, 255, 0.18),
+          transparent 60%
+        ),
+        rgba(5, 7, 18, 0.9);
+      border-radius: 24px;
+      padding: 26px 22px 24px;
+      border: 1px solid rgba(55, 242, 255, 0.3);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 26px;
+      align-items: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+    }
+
+    .lead-title {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .lead-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .lead-list {
+      list-style: none;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: grid;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .lead-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lead-badge {
+      font-size: 0.68rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(12, 15, 31, 0.9);
+      border: 1px solid rgba(55, 242, 255, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lead-badge span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(55, 242, 255, 0.9);
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    .field-group {
+      display: grid;
+      gap: 4px;
+      font-size: 0.8rem;
+    }
+
+    label {
+      color: var(--text-muted);
+    }
+
+    input,
+    textarea {
+      padding: 9px 10px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(160, 164, 192, 0.4);
+      background: rgba(5, 7, 18, 0.95);
+      color: var(--text-main);
+      font-size: 0.86rem;
+      outline: none;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease,
+        background 0.18s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(55, 242, 255, 0.35);
+      background: rgba(7, 10, 23, 1);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #626786;
+    }
+
+    .form-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .form-note {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .form-message {
+      font-size: 0.78rem;
+      min-height: 16px;
+    }
+
+    .form-message.success {
+      color: var(--success);
+    }
+
+    .form-message.error {
+      color: var(--danger);
+    }
+
+    /* DEPOIMENTOS */
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .testimonial-card {
+      background: rgba(5, 7, 18, 0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    .testimonial-quote {
+      margin-bottom: 10px;
+    }
+
+    .testimonial-name {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .testimonial-tag {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .quote-mark {
+      position: absolute;
+      top: 10px;
+      right: 16px;
+      font-size: 1.4rem;
+      color: rgba(55, 242, 255, 0.5);
+      opacity: 0.4;
+    }
+
+    /* CTA FINAL */
+
+    .cta-final {
+      text-align: center;
+      padding: 36px 0 24px;
+    }
+
+    .cta-final h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .cta-final p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(27, 32, 56, 0.9);
+      padding: 16px 0 20px;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* RESPONSIVO */
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-card {
+        margin-top: 10px;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .lead-section {
+        grid-template-columns: 1fr;
+      }
+      .cards-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cards-3 {
+        grid-template-columns: 1fr;
+      }
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding-top: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="container header-inner">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true"></div>
+          <div class="brand-text">
+            <div class="brand-title">FutureStep</div>
+            <div class="brand-subtitle">TÊNIS ESPORTIVOS</div>
+          </div>
+        </div>
+        <nav aria-label="Navegação principal">
+          <a href="#sobre">Sobre</a>
+          <a href="#categorias">Categorias</a>
+          <a href="#beneficios">Benefícios</a>
+          <a href="#lead">Lista VIP</a>
+          <a href="#depoimentos">Resultados</a>
+        </nav>
+        <button class="btn-header" onclick="document.getElementById('lead').scrollIntoView({behavior:'smooth'})">
+          <span class="icon-dot"></span>
+          Lista VIP
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="topo">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              <div class="eyebrow-pill">Nova geração</div>
+              <div class="eyebrow-text">Feito para jovens, esportistas e atletas</div>
+            </div>
+            <h1 class="hero-title">
+              <span class="accent">Sinta o Futuro nos Pés.</span><br />
+              Tecnologia, estilo e performance no mesmo passo.
+            </h1>
+            <p class="hero-subtitle">
+              Tênis esportivos com design futurista, conforto extremo e performance
+              pensada para quem vive em movimento — das pistas ao dia a dia.
+            </p>
+            <ul class="hero-list">
+              <li><span class="bullet"></span> Foco total em performance</li>
+              <li><span class="bullet"></span> Estética minimalista e futurista</li>
+              <li><span class="bullet"></span> Inspirado em Nike e Adidas</li>
+            </ul>
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="document.getElementById('lead').scrollIntoView({behavior:'smooth'})">
+                Entrar para a lista VIP
+                <span>↗</span>
+              </button>
+              <button class="btn-secondary" onclick="document.getElementById('categorias').scrollIntoView({behavior:'smooth'})">
+                Ver modelos e categorias
+              </button>
+            </div>
+            <p class="hero-note">
+              Sem spam, apenas ofertas reais, lançamentos e condições exclusivas para assinantes.
+            </p>
+          </div>
+
+          <div>
+            <div class="hero-card" aria-label="Visual futurista de tênis esportivo">
+              <div class="hero-card-tag">
+                <span class="dot"></span>
+                Drop exclusivo para membros
+              </div>
+              <div class="shoe-orbit">
+                <div class="shoe-core">
+                  <div class="shoe-silhouette"></div>
+                  <div class="shoe-glow"></div>
+                </div>
+                <div class="orbit-ring"></div>
+                <div class="orbit-dot"></div>
+              </div>
+              <div class="hero-card-footer">
+                <div class="hero-badges">
+                  <div class="badge">Amortecimento avançado</div>
+                  <div class="badge">Design minimalista</div>
+                </div>
+                <div class="rating">
+                  <span class="star">★</span>
+                  <span>4.9 / 5</span>
+                  <span style="color:var(--text-muted)">+1.200 atletas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOBRE / NOVA ERA -->
+      <section id="sobre">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Nova era do esporte</div>
+              <h2 class="section-title">Esporte, tecnologia e estilo no mesmo passo.</h2>
+            </div>
+            <p class="section-subtitle">
+              O esporte evoluiu. Seus tênis também. Aqui você encontra modelos pensados para
+              velocidade, impacto, resistência e estilo — sem abrir mão do conforto.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <div class="text-block">
+              <div class="pill">
+                <span></span>
+                performance real
+              </div>
+              <p>
+                Cada modelo é escolhido para entregar <strong>performance de alto nível</strong>,
+                conforto no dia a dia e um visual que combina com a sua rotina dentro e fora
+                das quadras, pistas ou academias.
+              </p>
+              <p>
+                Nosso foco é claro: <strong>jovens, esportistas e atletas</strong> que não
+                aceitam qualquer tênis — buscam tecnologia, estilo e durabilidade.
+              </p>
+              <ul class="highlight-list">
+                <li>
+                  <span class="highlight-pip"></span>
+                  <span>Amortecimento inteligente para treinos intensos.</span>
+                </li>
+                <li>
+                  <span class="highlight-pip"></span>
+                  <span>Estabilidade para corrida, treino ou jogo.</span>
+                </li>
+                <li>
+                  <span class="highlight-pip"></span>
+                  <span>Design futurista que conversa com o seu estilo.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="feature-card">
+              <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:6px;">
+                Inspirado na comunicação de gigantes como Nike e Adidas, nosso catálogo
+                combina <strong>performance esportiva</strong> e <strong>lifestyle</strong>
+                em cada par.
+              </p>
+              <div class="feature-metrics">
+                <div>
+                  <div class="metric-label">Conforto médio</div>
+                  <div class="metric-value">9,6/10</div>
+                </div>
+                <div>
+                  <div class="metric-label">Foco em atletas</div>
+                  <div class="metric-value">100%</div>
+                </div>
+                <div>
+                  <div class="metric-label">Estilo &amp; design</div>
+                  <div class="metric-value">Nível Pro</div>
+                </div>
+              </div>
+              <p style="font-size:0.78rem; color:var(--text-muted); margin-top:10px;">
+                Entre para a lista VIP e seja o primeiro a receber novos drops, coleções
+                limitadas e condições exclusivas para membros.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CATEGORIAS -->
+      <section id="categorias">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Modelos para cada tipo de treino</div>
+              <h2 class="section-title">Categorias de tênis esportivos.</h2>
+            </div>
+            <p class="section-subtitle">
+              Se é para treinar, correr ou viver o lifestyle esportivo, você encontra o
+              modelo certo aqui.
+            </p>
+          </div>
+
+          <div class="cards-3">
+            <article class="card">
+              <div class="card-label">Treino &amp; Academia</div>
+              <h3 class="card-title">Estabilidade para superar limites.</h3>
+              <p class="card-text">
+                Modelos pensados para treinos diários, conforto nas séries e estabilidade
+                em cada repetição — do aquecimento ao último exercício.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Apoio firme</span>
+                <span class="chip">Maior durabilidade</span>
+                <span class="chip">Treinos intensos</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-label">Corrida &amp; Performance</div>
+              <h3 class="card-title">Impulso em cada passo.</h3>
+              <p class="card-text">
+                Tênis leves, com amortecimento avançado e resposta rápida para corrida
+                de rua, esteira ou provas — mais velocidade, menos desgaste.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Alta performance</span>
+                <span class="chip">Leveza extrema</span>
+                <span class="chip">Resistência</span>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-label">Casual Esportivo</div>
+              <h3 class="card-title">Estilo que acompanha o seu ritmo.</h3>
+              <p class="card-text">
+                Visual esportivo, linhas limpas e design minimalista para quem quer
+                estar confortável e estiloso no dia a dia, sem perder o DNA esportivo.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Minimalista</span>
+                <span class="chip">Street &amp; sport</span>
+                <span class="chip">Conforto urbano</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- POR QUÊ / BENEFÍCIOS -->
+      <section id="beneficios">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Por que escolher nossos tênis</div>
+              <h2 class="section-title">Performance real, estilo futurista.</h2>
+            </div>
+            <p class="section-subtitle">
+              Cada modelo é selecionado para entregar o equilíbrio perfeito entre
+              conforto, tecnologia e visual moderno.
+            </p>
+          </div>
+
+          <div class="list-grid">
+            <div class="list-item">
+              <div class="list-item-icon">✓</div>
+              <div>
+                <strong>Design inspirado nas maiores marcas do mundo.</strong><br />
+                Referências diretas de Nike, Adidas e outras gigantes, adaptadas para o seu
+                dia a dia.
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-item-icon">✓</div>
+              <div>
+                <strong>Tecnologia de conforto e amortecimento.</strong><br />
+                Menos impacto, mais segurança e estabilidade em cada movimento.
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-item-icon">✓</div>
+              <div>
+                <strong>Estilo futurista que se encaixa na sua rotina.</strong><br />
+                Modelos que combinam com treino, rolê, faculdade ou trabalho.
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-item-icon">✓</div>
+              <div>
+                <strong>Qualidade premium acessível.</strong><br />
+                Curadoria que equilibra desempenho e custo-benefício de verdade.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEADS / LISTA VIP -->
+      <section id="lead">
+        <div class="container">
+          <div class="lead-section">
+            <div>
+              <div class="lead-badge">
+                <span class="dot"></span>
+                Lista VIP FutureStep
+              </div>
+              <h2 class="lead-title">Cadastre-se e entre para o futuro do esporte.</h2>
+              <p class="lead-subtitle">
+                Receba <strong>descontos exclusivos</strong>, <strong>lançamentos antes
+                de todo mundo</strong> e ofertas que só membros têm acesso.
+              </p>
+              <ul class="lead-list">
+                <li>• Drops limitados com prioridade para assinantes.</li>
+                <li>• Cupons especiais em datas selecionadas.</li>
+                <li>• Conteúdos e novidades sobre tênis esportivos.</li>
+              </ul>
+              <p class="form-note">
+                Leva menos de 30 segundos. Você pode sair da lista quando quiser.
+              </p>
+            </div>
+
+            <div>
+              <form id="leadForm" novalidate>
+                <div class="field-group">
+                  <label for="nome">Nome</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Como gostaria de ser chamado(a)?"
+                    required
+                  />
+                </div>
+                <div class="field-group">
+                  <label for="email">E-mail</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Seu melhor e-mail"
+                    required
+                  />
+                </div>
+                <div class="field-group">
+                  <label for="tipo">Você treina mais para:</label>
+                  <input
+                    type="text"
+                    id="tipo"
+                    name="tipo"
+                    placeholder="Corrida, academia, esporte específico..."
+                  />
+                </div>
+                <div class="form-footer">
+                  <button type="submit" class="btn-primary">
+                    Quero receber ofertas primeiro
+                    <span>⚡</span>
+                  </button>
+                  <p class="form-note">
+                    Prometemos respeitar sua caixa de entrada. Sem spam, sem exageros.
+                  </p>
+                  <div id="formMessage" class="form-message" aria-live="polite"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEPOIMENTOS -->
+      <section id="depoimentos">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Quem já está no ritmo</div>
+              <h2 class="section-title">Experiências de quem usa.</h2>
+            </div>
+            <p class="section-subtitle">
+              Resultados reais de quem já treina, corre e vive com nossos modelos.
+            </p>
+          </div>
+
+          <div class="testimonials">
+            <article class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p class="testimonial-quote">
+                “Os melhores modelos que já usei para correr. Leves, resistentes e com
+                uma pisada muito mais segura. Sinto diferença no ritmo e no impacto.”
+              </p>
+              <div class="testimonial-name">Lucas, 22 anos</div>
+              <div class="testimonial-tag">Corredor de rua</div>
+            </article>
+            <article class="testimonial-card">
+              <div class="quote-mark">“</div>
+              <p class="testimonial-quote">
+                “Uso para treinos intensos e funcional. O conforto é absurdo e a
+                estabilidade faz total diferença em exercícios de explosão.”
+              </p>
+              <div class="testimonial-name">Ana, 27 anos</div>
+              <div class="testimonial-tag">Atleta de cross training</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section>
+        <div class="container cta-final">
+          <h2>O futuro do esporte começa nos seus pés.</h2>
+          <p>
+            Entre para a lista VIP, receba ofertas exclusivas e fique na frente
+            nos próximos lançamentos de tênis esportivos.
+          </p>
+          <button class="btn-primary" onclick="document.getElementById('lead').scrollIntoView({behavior:'smooth'})">
+            Entrar para a lista VIP agora
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          © <span id="year"></span> FutureStep — Tênis Esportivos. Todos os direitos reservados.
+        </div>
+        <div class="footer-links">
+          <span>Desenvolvimento de copys e sites:</span>
+          <a href="https://sites.digitalismarketing.com.br" target="_blank" rel="noopener noreferrer">
+            Digitalis Marketing
+          </a>
+          <span>|</span>
+          <span>Contato: Rodrigo — (51) 99543-2515</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Ano automático no rodapé
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simulação de envio de formulário (lado do navegador)
+    const form = document.getElementById("leadForm");
+    const msg = document.getElementById("formMessage");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      msg.textContent = "";
+      msg.className = "form-message";
+
+      const nome = form.nome.value.trim();
+      const email = form.email.value.trim();
+
+      if (!nome || !email) {
+        msg.textContent = "Preencha nome e e-mail para entrar na lista VIP.";
+        msg.classList.add("error");
+        return;
+      }
+
+      // Aqui você conectaria com back-end ou serviço de e-mail (Mailchimp, etc.)
+      msg.textContent = "Cadastro realizado com sucesso! Em breve você receberá nossas novidades.";
+      msg.classList.add("success");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
